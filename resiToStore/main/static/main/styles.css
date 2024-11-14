@@ -132,16 +132,48 @@ ul li a i{
     margin-left: 35px;
 }
 
+.show-login{
+    background-color: #A1A1FF;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.show-login:hover{
+    background-color: #13131B;
+    color: #A1A1FF;
+    transition: 0.4s ease;
+}
+
+.show-reg{
+    background-color: #13131B;
+    color: #A1A1FF;
+    width: 120px;
+    height: 30px;
+    margin-top: 10px;
+    margin-right: 7px;
+    border: 3px solid #A1A1FF;
+    border-radius: 10px;
+}
+
+.show-reg:hover{
+    background-color: #bcbcf7;
+    color: #13131B;
+    transition: 0.4s ease;
+}
+
 .signIn{
     position: absolute;
     top: -150%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1.25);
-    width% 380px;
+    width% 400px;
     padding: 20px 30px;
-    background: #fff;
-    box-shadow: 2px, 2px, 5px, 5px rgba(0,0,0,0.15);
-    border-radius: 10px;
+    background: #13131B;
+    border: 3px solid #bcbcf7;
+    border-radius: 10%;
+    box-shadow: 0px 0px 5px 5px rgba(161, 161, 255, 0.5);
     transition: top 0ms ease-in-out 200ms,
                 opacity 200ms ease-in-out 0ms,
                 transform 200ms ease-in-out 0ms;
@@ -158,8 +190,8 @@ ul li a i{
 
 .signIn .closeBtn{
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     width: 15px;
     height: 15px;
     background: #888;
@@ -171,7 +203,7 @@ ul li a i{
 
 .signIn .form h2{
     text-align: center;
-    color: #222;
+    color: #bcbcf7;
     margin: 10px 0px 20px;
     font-size: 25px;
 }
@@ -182,14 +214,115 @@ ul li a i{
 
 .signIn .form .formElement label{
     font-size: 14px;
-    color: #222;
+    color: #bcbcf7;
+}
+
+.formElement button{
+    width: 300px;
+    height: 40px;
+    background-color: #13131B;
+    margin-right: 50px;
+    color: #fff;
+    border: 3px solid #A1A1FF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(161, 161, 255, 0.5), inset 0px 0px 5px 5px rgba(161, 161, 255, 0.5);
 }
 
 .signIn .form .formElement input[type="text"],
-.signIn .form .formElement input[type="password"]{
-    margin-top: 5px,
-    display: block;
+.signIn .form .formElement input[type="password"] {
+    margin-top: 5px;
+    background-color: #bcbcf7;
     width: 100%;
+    display: block;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.forgotPassword {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.forgotPassword:hover {
+    color: darkblue;
+}
+
+.signUp{
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    width: 400px;
+    height: 500px;
+    padding: 20px 30px;
+    background: #13131B;
+    border: 3px solid #bcbcf7;
+    border-radius: 8%;
+    box-shadow: 0px 0px 5px 5px rgba(161, 161, 255, 0.5);
+    transition: top 0ms ease-in-out 200ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 0ms;
+}
+
+.signUp.activate{
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    transition: top 0ms ease-in-out 0ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 200ms ease-in-out 0ms;
+}
+
+.signUp .closeBtn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 15px;
+    height: 15px;
+    background: #888;
+    color: #eee;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+}
+
+.signUp .formReg h2{
+    text-align: center;
+    color: #bcbcf7;
+    margin: 10px 0px 20px;
+    font-size: 25px;
+}
+
+.signUp .formReg .formRegElement{
+    margin: 15px 0px;
+}
+
+.signUp .formReg .formRegElement label{
+    font-size: 14px;
+    color: #bcbcf7;
+}
+
+.formRegElement button{
+    width: 300px;
+    height: 40px;
+    background-color: #13131B;
+    margin-left: 15px;
+    margin-top: 40px;
+    color: #fff;
+    border: 3px solid #A1A1FF;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(161, 161, 255, 0.5), inset 0px 0px 5px 5px rgba(161, 161, 255, 0.5);
+}
+
+.signUp .formReg .formRegElement input[type="text"],
+.signUp .formReg .formRegElement input[type="password"] {
+    margin-top: 5px;
+    background-color: #bcbcf7;
+    width: 100%;
+    display: block;
     padding: 10px;
     outline: none;
     border: 1px solid #aaa;
