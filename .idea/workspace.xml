@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e2594923-563d-4c91-835e-83b731d43edb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/resiToStore/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/main/static/main/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/main/static/main/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/main/static/main/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/main/static/main/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/main/templates/main/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/main/templates/main/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/main/templates/main/navigationBar.html" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/main/templates/main/navigationBar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/main/templates/main/signIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/main/templates/main/signIn.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/resiToStore/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/resiToStore/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resiToStore/resiToStore/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resiToStore/resiToStore/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/resiToStore/main/static/main/registrationStyle.css" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2osgLicwS4RcMVj6GWS548zW5qm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;http.proxy&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resiToStore/main/templates/registration" />
+      <recent name="$PROJECT_DIR$/resiToStore/resiToStore/templates/registraion" />
+      <recent name="$PROJECT_DIR$/resiToStore/users/templates/registration" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-98f27166c754-ba05f1cad1b1-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.21829.153" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e2594923-563d-4c91-835e-83b731d43edb" name="Changes" comment="" />
+      <created>1731663642816</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1731663642816</updated>
+    </task>
+    <servers />
+  </component>
+</project>

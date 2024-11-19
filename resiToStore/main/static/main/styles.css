@@ -328,3 +328,69 @@ ul li a i{
     border: 1px solid #aaa;
     border-radius: 5px;
 }
+
+.registration{
+    margin: 10px;
+    margin-left: 2px;
+    padding: 5px;
+    color: #bcbcf7;
+    border: 3px solid #bcbcf7;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.login{
+    margin: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 2px;
+    background-color: #bcbcf7;
+    color: #000;
+    border: 3px solid #bcbcf7;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.registration:hover{
+    background-color: #bcbcf7;
+    color: #000;
+    transition: 0.6s ease;
+    text-decoration: none;
+}
+
+.login:hover{
+    color: #bcbcf7;
+    border: 3px solid #bcbcf7;
+    background-color: #000;
+    transition: 0.6s ease;
+    text-decoration: none;
+}
+
+.logoutBtn{
+    margin: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 2px;
+    background-color: #bcbcf7;
+    color: #000;
+    border: 3px solid #bcbcf7;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+.logoutBtn:hover{
+    color: #bcbcf7;
+    border: 3px solid #bcbcf7;
+    background-color: #000;
+    transition: 0.6s ease;
+    text-decoration: none;
+}
+
+.usernameSpan{
+    color: #bcbcf7;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 18px;
+}

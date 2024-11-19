@@ -14,7 +14,12 @@
 <body>
     {% include 'main/navigationBar.html' %}
     {% block content %}
+    {% csrf_token %}
     {% endblock %}
-    <script src="{% static 'main/js/script.js' %}"></script>
+
 </body>
 </html>
+
+
+
+

@@ -1,0 +1,55 @@
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'main/loginStyle.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Вход</title>
+</head>
+<body>
+<div class="container">
+<h1>Вход</h1>
+
+{% if form.non_field_errors %}
+<p>{{ form.non_field_errors }}</p>
+{% endif %}
+
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+
+    <div class="cell">
+        <label for="{{ form.username.id_for_label }}">Имя пользователя</label>
+        <input type="text" name="username" id="{{ form.username.id_for_label }}" required>
+        {% if form.username.errors %}
+            <ul>
+                {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div class="cell">
+        <label for="{{ form.password.id_for_label }}">Пароль</label>
+        <input type="password" name="password" id="{{ form.password.id_for_label }}" required>
+        {% if form.password.errors %}
+            <ul>
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <button type="submit" class="btn">Вход</button>
+    <div class="group">
+    <button type="button" class="back" onclick="window.history.back()">Назад</button>
+    <a href="{% url 'register' %}" class="reg">К регистрации</a>
+    </div>
+</form>
+
+<a href="{% url 'password_reset' %}" class="forgot">Забыли пароль?</a>
+</div>
+</body>
+</html>

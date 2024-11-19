@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, authenticate
+from django.http import JsonResponse
+import json
 from django.http import HttpResponse
 
 def assembling(request):

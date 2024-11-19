@@ -1,0 +1,63 @@
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'main/registrationStyle.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Регистрация</title>
+</head>
+<body>
+<div class="container">
+<h1>Регистрация</h1>
+<form action="{% url 'register' %}" method="post">
+  {% csrf_token %}
+
+  <div class="cell">
+    <label>{{ form.username.label }}</label><br>
+    {{ form.username }}<br>
+    {% if form.username.errors %}
+      <div class="error">
+        {{ form.username.errors }}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="cell">
+    <label>{{ form.email.label }}</label><br>
+    {{ form.email }}<br>
+    {% if form.email.errors %}
+      <div class="error">
+        {{ form.email.errors }}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="cell">
+    <label>{{ form.password1.label }}</label><br>
+    {{ form.password1 }}<br>
+    {% if form.password1.errors %}
+      <div class="error">
+        {{ form.password1.errors }}
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="cell">
+    <label>{{ form.password2.label }}</label><br>
+    {{ form.password2 }}<br>
+    {% if form.password2.errors %}
+      <div class="error">
+        {{ form.password2.errors }}
+      </div>
+    {% endif %}
+  </div>
+
+  <button type="submit" class="btn">Регистрация</button>
+  <div class="group">
+    <button type="button" class="back" onclick="window.history.back()">Назад</button>
+    <a href="{% url 'login' %}" class="login">Вход</a>
+  </div>
+</form>
+</div>
+</body>

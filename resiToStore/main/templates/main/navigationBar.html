@@ -9,8 +9,16 @@
             <a class="nav-item nav-link" href="{% url 'popular' %}"><h6>Популярные сборки</h6></a>
             <a class="nav-item nav-link" href="{% url 'instruction' %}"><h6>Инструкция по сборке</h6></a>
             <div class="regButton ml-auto">
-                <button class="show-reg" id="show-reg">Регистрация</button>
-                <button class="show-login" id="show-login">Вход</button>
+                {% if user.is_authenticated %}
+                <span class="usernameSpan">{{ user.username }}</span>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="logoutBtn">Log out</button>
+                </form>
+                {% else %}
+                <a href="{% url 'login' %}" class="login">Вход</a> |
+                <a href="{% url 'register' %}" class="registration">Регистрация</a>
+                {% endif %}
             </div>
         </div>
     </div>
