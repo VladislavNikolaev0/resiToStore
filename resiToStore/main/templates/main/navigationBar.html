@@ -13,7 +13,7 @@
                 <span class="usernameSpan">{{ user.username }}</span>
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="logoutBtn">Log out</button>
+                    <button type="submit" class="logoutBtn">Выход</button>
                 </form>
                 {% else %}
                 <a href="{% url 'login' %}" class="login">Вход</a> |

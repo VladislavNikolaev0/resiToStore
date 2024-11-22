@@ -6,10 +6,10 @@
     <div class="sidebar">
         <h3>Комплектующие</h3>
         <ul>
-            <li><a href="#">Материнская плата</a></li>
-            <li><a href="#">Процессор</a></li>
-            <li><a href="#">Оперативная память</a></li>
-            <li><a href="#">Блок питания</a></li>
+            <li><a href="{% url 'motherbroad_list' %}">Материнская плата</a></li>
+            <li><a href="{% url 'processor_list' %}">Процессор</a></li>
+            <li><a href="{% url 'ram_list' %}">Оперативная память</a></li>
+            <li><a href="{% url 'powerUnit_list' %}">Блок питания</a></li>
             <li><a href="#">Охлаждение</a></li>
             <li><a href="#">Корпус</a></li>
             <li><a href="#">Видео-карта</a></li>
@@ -21,9 +21,20 @@
         </ul>
     </div>
 
-    <div class="mainContent">
-        <h1>Content</h1>
+
+
+    <div class="mainContent" id="mainContent">
+        {% block constructor_content %}
+
+        <h1>Добро пожаловать!</h1>
+        <p>Выберите компонент из боковой панели.</p>
+                <p>URL процессора: {% url 'processor_list' %}</p>
+        <p>URL оперативной памяти: {% url 'ram_list' %}</p>
+
+        {% endblock constructor_content %}
     </div>
+
+
 
     <div class="rightContent">
         <button class="standartButton">Оценка производительности</button>
@@ -33,4 +44,33 @@
         <button class="standartButton">Сайт партнеров</button>
     </div>
 </div>
-{% endblock %}
+
+{% endblock content %}
+
+{% block script %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.component-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Предотвращаем переход по ссылке
+                const url = this.getAttribute('data-url');
+                console.log('Fetching URL:', url); // Для отладки
+
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Сеть не в порядке: ' + response.statusText);
+                        }
+                        return response.text();
+                    })
+                    .then(data => {
+                        document.getElementById('mainContent').innerHTML = data;
+                    })
+                    .catch(error => console.error('Ошибка:', error));
+            });
+        });
+    });
+</script>
+
+{% endblock script %}

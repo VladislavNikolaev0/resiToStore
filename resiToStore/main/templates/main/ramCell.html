@@ -1,0 +1,32 @@
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ ram.model }} - {{ ram.capacity }}</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Тип озу </strong> {{ ram.type }}</p>
+        <p><strong>Емкость </strong>{{ ram.capacity }}</p>
+        <p><strong>Частота </strong>{{ ram.clockSpeed }} Мгц</p>
+        <p><strong>Форм фактор </strong>{{ ram.formFactor }}</p>
+        <p><strong>RGB подцветка </strong>{{ ram.rgbBacklight }}</p>
+        <p><strong>Страна производителя </strong>{{ ram.country }}</p>
+        <p><strong>Цена </strong>{{ ram.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

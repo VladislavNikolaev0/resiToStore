@@ -1,0 +1,38 @@
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ motherbroad.model }}</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Серия</strong> {{ motherbroad.series }}</p>
+        <p><strong>Форм фактор </strong>{{ motherbroad.fromFactor }}</p>
+        <p><strong>Высота </strong>{{ motherbroad.height }} мм</p>
+        <p><strong>Ширана </strong>{{ motherbroad.width }} мм</p>
+        <p><strong>Сокет </strong>{{ motherbroad.socket }}</p>
+        <p><strong>Форм фактор озу </strong>{{ motherbroad.formFactorOfSupportedMemory }}</p>
+        <p><strong>Тип озу </strong>{{ motherbroad.ramType }}</p>
+        <p><strong>Количество слотов озу </strong>{{ motherbroad.ramSlots }}</p>
+        <p><strong>Частота оперативной памяти </strong>{{ motherbroad.ramFrequency }} МГц</p>
+        <p><strong>Количество портов Сата </strong>{{ motherbroad.sataConnectors }}</p>
+        <p><strong>Количество потров usb type-A </strong>{{ motherbroad.usbTypeASlots }}</p>
+        <p><strong>Страна производителя </strong>{{ motherbroad.country }}</p>
+        <p><strong>Цена </strong>{{ motherbroad.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

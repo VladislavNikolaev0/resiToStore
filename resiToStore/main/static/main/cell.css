@@ -1,0 +1,20 @@
+.cell {
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    border-radius: 5px;
+    width: 708px;
+}
+
+.cell-head {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.cell-details {
+    padding: 10px;
+    background-color: #f1f1f1;
+}

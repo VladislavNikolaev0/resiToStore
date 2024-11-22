@@ -1,0 +1,40 @@
+
+
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ processor.model }} - {{ processor.baseClock }} Ггц</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Количество ядер</strong> {{ processor.cores }}</p>
+        <p><strong>Сокет </strong>{{ processor.socket }}</p>
+        <p><strong>Максимальное количество потоков </strong>{{ processor.maxThreads }}</p>
+        <p><strong>Базовая частота </strong>{{ processor.baseClock }}</p>
+        <p><strong>Частота в турбо режиме </strong>{{ processor.turboClock }}</p>
+        <p><strong>Тип поддерживаемой озу </strong>{{ processor.typeRam }}</p>
+        <p><strong>Максимальное поличество озу </strong>{{ processor.maxRamSize }} Гб</p>
+        <p><strong>Частота оперативной памяти </strong>{{ processor.ramFrequency }} МГц</p>
+        <p><strong>Тепловыделение </strong>{{ processor.tdp }} Вт</p>
+        <p><strong>Максимальная температура </strong>{{ processor.maxTemp }} °C</p>
+        <p><strong>Год релиза </strong>{{ processor.releaseYear }}</p>
+        <p><strong>Страна производителя </strong>{{ processor.country }}</p>
+        <p><strong>Цена </strong>{{ processor.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

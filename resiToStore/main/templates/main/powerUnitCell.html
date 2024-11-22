@@ -1,0 +1,36 @@
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ powerUnit.model }}</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Мощность </strong> {{ powerUnit.power }}</p>
+        <p><strong>Форм фактор </strong>{{ powerUnit.formFactor }}</p>
+        <p><strong>Основной разъем питания </strong>{{ powerUnit.mainPowerConnector }}</p>
+        <p><strong>Разъемы для питания процессора </strong>{{ powerUnit.connectorsForProcessor }}</p>
+        <p><strong>Pазъемы для питания видеокарты </strong>{{ powerUnit.connectorsForVideoCard }}</p>
+        <p><strong>Количество разъемов 15-pin SATA </strong>{{ powerUnit.numbersForSata }}</p>
+        <p><strong>Мощность по линии 12 В </strong>{{ powerUnit.linePower12V }} Вт</p>
+        <p><strong>Ток по линии +12 В </strong>{{ powerUnit.lineCurrent12V }} Вт</p>
+        <p><strong>Диапазон входного напряжения сети </strong>{{ powerUnit.networkVoltage }} Гц</p>
+        <p><strong>Страна производителя </strong>{{ powerUnit.country }}</p>
+        <p><strong>Цена </strong>{{ powerUnit.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

@@ -10,13 +10,17 @@
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+
+    {% block head %}
+    {% endblock head %}
 </head>
 <body>
     {% include 'main/navigationBar.html' %}
     {% block content %}
-    {% csrf_token %}
     {% endblock %}
 
+    {% block script %}
+    {% endblock script %}
 </body>
 </html>
 

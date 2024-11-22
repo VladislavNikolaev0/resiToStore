@@ -82,7 +82,7 @@ ul li a {
   display: block;
   text-transform: capitalize;
   text-decoration: none;
-  pointer-events: none;
+  /*pointer-events: none;*/
 }
 
 ul li a i{
