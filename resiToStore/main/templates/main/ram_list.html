@@ -7,6 +7,37 @@
 {% endblock head %}
 {% block constructor_content %}
 <ul>
+
+    <form action="{% url 'ram_list' %}" method="post" id="serachForm">
+        {% csrf_token %}
+        <div class="cell">
+            <div class="cell-head">
+                <select name="company" id="company">
+                    <option value="Производитель" selected disabled>Производитель</option>
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="type" id="type">
+                    <option value="Тип ОЗУ" selected disabled>Тип ОЗУ</option>
+                    {% for item in type %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="capacity" id="capacity">
+                    <option value="Емкость" selected disabled>Емкость</option>
+                    {% for item in capacity %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">search</button>
+            </div>
+        </div>
+    </form>
+
     {% for ram in rams %}
     {% include 'main/ramCell.html' %}
     

@@ -7,6 +7,37 @@
 {% endblock head %}
 {% block constructor_content %}
 <ul>
+
+    <form action="{% url 'cooler_list' %}" method="post" id="serachForm">
+        {% csrf_token %}
+        <div class="cell">
+            <div class="cell-head">
+                <select name="company" id="company">
+                    <option value="Производитель" selected disabled>Производитель</option>
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="power" id="power">
+                    <option value="Рассеиваемая мощность" selected disabled>Рассеиваемая мощность</option>
+                    {% for item in powers %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="type" id="type">
+                    <option value="Тип" selected disabled>Тип</option>
+                    {% for item in types %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">search</button>
+            </div>
+        </div>
+    </form>
+
     {% for cooler in coolers %}
     {% include 'main/coolerCell.html' %}
 

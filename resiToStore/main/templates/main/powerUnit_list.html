@@ -7,6 +7,37 @@
 {% endblock head %}
 {% block constructor_content %}
 <ul>
+
+    <form action="{% url 'powerUnit_list' %}" method="post" id="serachForm">
+        {% csrf_token %}
+        <div class="cell">
+            <div class="cell-head">
+                <select name="company" id="company">
+                    <option value="Производитель" selected disabled>Производитель</option>
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="power" id="power">
+                    <option value="Мощность" selected disabled>Мощность</option>
+                    {% for item in powers %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="formFactor" id="formFactor">
+                    <option value="Форм фактор" selected disabled>Форм фактор</option>
+                    {% for item in formFactors %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">search</button>
+            </div>
+        </div>
+    </form>
+
     {% for powerUnit in powerUnits %}
     {% include 'main/powerUnitCell.html' %}
 

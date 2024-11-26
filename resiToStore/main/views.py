@@ -45,7 +45,32 @@ def processor_list(request):
 
 def ram_list(request):
     rams = Ram.objects.all()
-    return render(request, 'main/ram_list.html', {'rams': rams})
+
+    companies = set([ram.model.split()[0] for ram in rams])
+    type = set([ram.type for ram in rams])
+    capacity = set([ram.capacity for ram in rams])
+
+    selectedCompany = request.POST.get("company", "")
+    selectedType = request.POST.get("type", "")
+    selectedCapacity = request.POST.get("capacity", "")
+
+    if selectedCompany and selectedCompany != 'Производитель':
+        rams = rams.filter(model__icontains=selectedCompany)
+
+    if selectedType and selectedType != 'Тип ОЗУ':
+        rams = rams.filter(type=selectedType)
+
+    if selectedCapacity and selectedCapacity != 'Емкость':
+        rams = rams.filter(capacity=selectedCapacity)
+
+    data = {
+        'rams': rams,
+        'companies': companies,
+        'type': type,
+        'capacity': capacity,
+    }
+
+    return render(request, 'main/ram_list.html', data)
 
 def motherbroad_list(request):
     motherbroads = MotherBroad.objects.all()
@@ -78,24 +103,187 @@ def motherbroad_list(request):
 
 def powerUnit_list(request):
     powerUnits = PowerUnit.objects.all()
-    return render(request,'main/powerUnit_list.html', {'powerUnits': powerUnits})
+
+    companies = set([unit.model.split()[0] for unit in powerUnits])
+
+    companies.remove('be')
+    companies.remove('Cooler')
+    companies.add('be quiet!')
+    companies.add('Cooler Master')
+    powers = set([unit.power for unit in powerUnits])
+    formFactors = set([unit.formFactor for unit in powerUnits])
+
+    selectedCompany = request.POST.get("company", "")
+    selectedPower = request.POST.get("power", "")
+    selectedformFactor = request.POST.get("formFactor", "")
+
+    if selectedCompany and selectedCompany != 'Производитель':
+        powerUnits = powerUnits.filter(model__icontains=selectedCompany)
+
+    if selectedPower and selectedPower != 'Мощность':
+        powerUnits = powerUnits.filter(power=selectedPower)
+
+    if selectedformFactor and selectedformFactor != 'Форм фактор':
+        powerUnits = powerUnits.filter(formFactor=selectedformFactor)
+
+    data = {
+        'powerUnits': powerUnits,
+        'companies': companies,
+        'powers': powers,
+        'formFactors': formFactors,
+    }
+
+    return render(request,'main/powerUnit_list.html', data)
 
 def cooler_list(request):
     coolers = Cooler.objects.all()
-    return render(request, 'main/cooler_list.html', {'coolers': coolers})
+
+    companies = set([item.model.split()[0] for item in coolers])
+
+    companies.remove('be')
+    companies.remove('Cooler')
+    companies.add('be quiet!')
+    companies.add('Cooler Master')
+    powers = set([unit.powerDissipation for unit in coolers])
+    types = set([unit.type for unit in coolers])
+
+    selectedCompany = request.POST.get("company", "")
+    selectedPower = request.POST.get("power", "")
+    selectedType = request.POST.get("type", "")
+
+    if selectedCompany and selectedCompany != 'Производитель':
+        coolers = coolers.filter(model__icontains=selectedCompany)
+
+    if selectedPower and selectedPower != 'Рассеиваемая мощность':
+        coolers = coolers.filter(powerDissipation=selectedPower)
+
+    if selectedType and selectedType != 'Тип':
+        coolers = coolers.filter(type=selectedType)
+
+    data = {
+        'coolers': coolers,
+        'companies': companies,
+        'powers': powers,
+        'types': types,
+    }
+
+    return render(request, 'main/cooler_list.html', data)
 
 def corpus_list(request):
     corpuss = Corpus.objects.all()
-    return render(request, 'main/corpus_list.html', {'corpuss': corpuss})
+
+    companies = set([item.model.split()[0] for item in corpuss])
+
+    companies.remove('Cooler')
+    companies.add('Cooler Master')
+    # formFactorsOfCompatibleBoards = [unit.formFactorOfCompatibleBoards for unit in corpuss]
+    colors = set([unit.mainColor for unit in corpuss])
+
+    selectedCompany = request.POST.get("company", "")
+    selectedBoardFormFactor = request.POST.get("boardFormFactor", "")
+    selectedColor = request.POST.get("color", "")
+
+    if selectedCompany and selectedCompany != 'Производитель':
+        corpuss = corpuss.filter(model__icontains=selectedCompany)
+
+    if selectedBoardFormFactor and selectedBoardFormFactor != 'Форм фактор совместимой платы':
+        corpuss = corpuss.filter(formFactorOfCompatibleBoards__icontains=selectedBoardFormFactor)
+
+    if selectedColor and selectedColor != 'Основной цвет':
+        corpuss = corpuss.filter(mainColor=selectedColor)
+
+    data = {
+        'corpuss': corpuss,
+        'companies': companies,
+        # 'boardFormFactors': formFactorsOfCompatibleBoards,
+        'colors': colors,
+    }
+
+    return render(request, 'main/corpus_list.html', data)
 
 def videoCard_list(request):
     videoCards = VideoCard.objects.all()
-    return render(request, 'main/videoCard_list.html', {'videoCards': videoCards})
+
+    companies = set([card.model.split()[0] for card in videoCards])
+    Microarchitectures = set([card.Microarchitecture for card in videoCards])
+    amountOfVideoMemorys = set([card.amountOfVideoMemory for card in videoCards])
+
+    selectedCompany = request.POST.get("company", "")
+    selectedSockeMicroarchitecture = request.POST.get("Microarchitecture", "")
+    selectedamountOfVideoMemory = request.POST.get("amountOfVideoMemory", "")
+
+    if selectedCompany and selectedCompany != 'Производитель':
+        videoCards = videoCards.filter(model__icontains=selectedCompany)
+
+    if selectedSockeMicroarchitecture and selectedSockeMicroarchitecture != 'Микроархитектура':
+        videoCards = videoCards.filter(Microarchitecture=selectedSockeMicroarchitecture)
+
+    if selectedamountOfVideoMemory and selectedamountOfVideoMemory != 'Количество видео памяти':
+        videoCards = videoCards.filter(amountOfVideoMemory=selectedamountOfVideoMemory)
+
+    data = {
+        'videoCards': videoCards,
+        'companies': companies,
+        'Microarchitectures': Microarchitectures,
+        'amountOfVideoMemorys': amountOfVideoMemorys,
+    }
+
+    return render(request, 'main/videoCard_list.html', data)
 
 def hdd_list(request):
     hdds = Hdd.objects.all()
-    return render(request, 'main/hdd_list.html', {'hdds': hdds})
+
+    companies = set([hdd.model.split()[0] for hdd in hdds])
+    hddCapacitys = set([hdd.hddCapacity for hdd in hdds])
+    amountOfCacheMemorys = set([hdd.amountOfCacheMemory for hdd in hdds])
+
+    selectedCompany = request.POST.get("company", "")
+    selectedhddCapacity = request.POST.get("hddCapacity", "")
+    selectedamountOfCacheMemory = request.POST.get("amountOfCacheMemory", "")
+
+    if selectedCompany and selectedCompany != 'Производитель':
+        hdds = hdds.filter(model__icontains=selectedCompany)
+
+    if selectedhddCapacity and selectedhddCapacity != 'Емкость':
+        hdds = hdds.filter(hddCapacity=selectedhddCapacity)
+
+    if selectedamountOfCacheMemory and selectedamountOfCacheMemory != 'Количество кеш памяти':
+        hdds = hdds.filter(amountOfCacheMemory=selectedamountOfCacheMemory)
+
+    data = {
+        'hdds': hdds,
+        'companies': companies,
+        'hddCapacitys': hddCapacitys,
+        'amountOfCacheMemorys': amountOfCacheMemorys,
+    }
+
+    return render(request, 'main/hdd_list.html', data)
 
 def ssd_list(request):
     ssds = Ssd.objects.all()
-    return render(request, 'main/ssd_list.html', {'ssds': ssds})
+
+    companies = set([ssd.model.split()[0] for ssd in ssds])
+    storageCapacitys = set([ssd.storageCapacity for ssd in ssds])
+    controllers = set([ssd.controller for ssd in ssds])
+
+    selectedCompany = request.POST.get("company", "")
+    selectedstorageCapacity = request.POST.get("storageCapacity", "")
+    selectedcontroller = request.POST.get("controller", "")
+
+    if selectedCompany and selectedCompany != 'Производитель':
+        ssds = ssds.filter(model__icontains=selectedCompany)
+
+    if selectedstorageCapacity and selectedstorageCapacity != 'Емкость':
+        ssds = ssds.filter(storageCapacity=selectedstorageCapacity)
+
+    if selectedcontroller and selectedcontroller != 'Контроллер':
+        ssds = ssds.filter(controller=selectedcontroller)
+
+    data = {
+        'ssds': ssds,
+        'companies': companies,
+        'storageCapacitys': storageCapacitys,
+        'controllers': controllers,
+    }
+
+    return render(request, 'main/ssd_list.html', data)

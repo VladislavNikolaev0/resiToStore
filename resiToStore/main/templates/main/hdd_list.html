@@ -7,6 +7,37 @@
 {% endblock head %}
 {% block constructor_content %}
 <ul>
+
+    <form action="{% url 'hdd_list' %}" method="post" id="serachForm">
+        {% csrf_token %}
+        <div class="cell">
+            <div class="cell-head">
+                <select name="company" id="company">
+                    <option value="Производитель" selected disabled>Производитель</option>
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="hddCapacity" id="hddCapacity">
+                    <option value="Емкость" selected disabled>Емкость</option>
+                    {% for hddCapacity in hddCapacitys %}
+                        <option value="{{ hddCapacity }}">{{ hddCapacity }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="amountOfCacheMemory" id="amountOfCacheMemory">
+                    <option value="Количество кеш памяти" selected disabled>Количество кеш памяти</option>
+                    {% for amountOfCacheMemory in amountOfCacheMemorys %}
+                        <option value="{{ amountOfCacheMemory }}">{{ amountOfCacheMemory }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">search</button>
+            </div>
+        </div>
+    </form>
+
     {% for hdd in hdds %}
     {% include 'main/hddCell.html' %}
 

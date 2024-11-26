@@ -7,6 +7,37 @@
 {% endblock head %}
 {% block constructor_content %}
 <ul>
+
+    <form action="{% url 'ssd_list' %}" method="post" id="serachForm">
+        {% csrf_token %}
+        <div class="cell">
+            <div class="cell-head">
+                <select name="company" id="company">
+                    <option value="Производитель" selected disabled>Производитель</option>
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="storageCapacity" id="storageCapacity">
+                    <option value="Емкость" selected disabled>Емкость</option>
+                    {% for storageCapacity in storageCapacitys %}
+                        <option value="{{ storageCapacity }}">{{ storageCapacity }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="controller" id="controller">
+                    <option value="Контроллер" selected disabled>Контроллер</option>
+                    {% for controller in controllers %}
+                        <option value="{{ controller }}">{{ controller }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">search</button>
+            </div>
+        </div>
+    </form>
+
     {% for ssd in ssds %}
     {% include 'main/ssdCell.html' %}
 

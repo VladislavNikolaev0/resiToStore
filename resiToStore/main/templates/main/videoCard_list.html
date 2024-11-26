@@ -7,6 +7,37 @@
 {% endblock head %}
 {% block constructor_content %}
 <ul>
+
+     <form action="{% url 'videoCard_list' %}" method="post" id="serachForm">
+        {% csrf_token %}
+        <div class="cell">
+            <div class="cell-head">
+                <select name="company" id="company">
+                    <option value="Производитель" selected disabled>Производитель</option>
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="Microarchitecture" id="Microarchitecture">
+                    <option value="Микроархитектура" selected disabled>Микроархитектура</option>
+                    {% for Microarchitecture in Microarchitectures %}
+                        <option value="{{ Microarchitecture }}">{{ Microarchitecture }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="amountOfVideoMemory" id="amountOfVideoMemory">
+                    <option value="Количество видео памяти" selected disabled>Количество видео памяти</option>
+                    {% for item in amountOfVideoMemorys %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">search</button>
+            </div>
+        </div>
+    </form>
+
     {% for videoCard in videoCards %}
     {% include 'main/videoCardCell.html' %}
 
