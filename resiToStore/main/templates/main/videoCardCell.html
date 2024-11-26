@@ -1,0 +1,34 @@
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ videoCard.model }}</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Микроархитектура </strong> {{ videoCard.Microarchitecture }}</p>
+        <p><strong>Стандартная Частота Работы Видеочипа </strong>{{ videoCard.theStandardFrequencyOfOperationOfTheVideoChip }} МГц</p>
+        <p><strong>Частота турбонаддува </strong>{{ videoCard.turboFrequency }} МГц</p>
+        <p><strong>Количество видео памяти </strong>{{ videoCard.amountOfVideoMemory }} Гб</p>
+        <p><strong>Тип памяти </strong>{{ videoCard.memoryType }}</p>
+        <p><strong>Разрядность Шины Памяти </strong>{{ videoCard.theBitDepthOfTheMemoryBus }} бит</p>
+        <p><strong>Количество мониторов подключаемых одновремменно </strong>{{ videoCard.theNumberOfMonitorsConnectedAtTheSameTime }}</p>
+        <p><strong>Страна производителя </strong>{{ videoCard.countryOfOrigin }}</p>
+        <p><strong>Цена </strong>{{ videoCard.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

@@ -11,4 +11,9 @@ urlpatterns = [
     path('rams/', ram_list, name='ram_list'),
     path('motherbroads/', motherbroad_list, name='motherbroad_list'),
     path('powerUnits/', powerUnit_list, name='powerUnit_list'),
+    path('cooler/', cooler_list, name='cooler_list'),
+    path('corpus/', corpus_list, name='corpus_list'),
+    path('videoCard/', videoCard_list, name='videoCard_list'),
+    path('hdd/', hdd_list, name='hdd_list'),
+    path('ssd/', ssd_list, name='ssd_list'),
 ]

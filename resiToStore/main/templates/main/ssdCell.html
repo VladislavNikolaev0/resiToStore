@@ -1,0 +1,32 @@
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ ssd.model }}</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Емкость запоминающего устройства </strong> {{ ssd.storageCapacity }} Гб</p>
+        <p><strong>Cоединительный разъем </strong>{{ ssd.connectionConnector }}</p>
+        <p><strong>Контроллер </strong>{{ ssd.controller }}</p>
+        <p><strong>Максимальная скорость последовательного чтения </strong>{{ ssd.maximumSequentialReadSpeed }} Мбайт/сек</p>
+        <p><strong>Максимальная скорость последовательной записи </strong>{{ ssd.maximumSequentialRecordingSpeed }} Мбайт/сек</p>
+        <p><strong>Страна производителя </strong>{{ ssd.countryOfOrigin }}</p>
+        <p><strong>Цена </strong>{{ ssd.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

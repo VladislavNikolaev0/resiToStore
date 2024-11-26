@@ -1,0 +1,15 @@
+{% extends 'main/assembling.html' %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/cell.css' %}">
+{% endblock head %}
+{% block constructor_content %}
+<ul>
+    {% for hdd in hdds %}
+    {% include 'main/hddCell.html' %}
+
+    {% endfor %}
+</ul>
+{% endblock constructor_content %}

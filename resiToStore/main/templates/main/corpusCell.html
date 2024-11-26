@@ -1,0 +1,36 @@
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ corpus.model }}</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Ориентация материнской платы </strong> {{ corpus.orientationOfTheMotherboard }}</p>
+        <p><strong>Ширина </strong>{{ corpus.width }} мм</p>
+        <p><strong>Высота </strong>{{ corpus.height }} мм</p>
+        <p><strong>Вес </strong>{{ corpus.weight }} гр</p>
+        <p><strong>Основной цвет </strong>{{ corpus.mainColor }}</p>
+        <p><strong>Доп. цвета </strong>{{ corpus.additionalColor }}</p>
+        <p><strong>Материал корпуса </strong>{{ corpus.housingMaterial }}</p>
+        <p><strong>Форм фактор совместимой платы </strong>{{ corpus.formFactorOfCompatibleBoards }}</p>
+        <p><strong>Форм фатор совместимого блока питания </strong>{{ corpus.theFormFactorOfCompatiblePowerSupplies }}</p>
+        <p><strong>Страна производителя </strong>{{ corpus.countryOfOrigin }}</p>
+        <p><strong>Цена </strong>{{ corpus.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

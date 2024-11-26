@@ -1,0 +1,33 @@
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ hdd.model }}</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Емкость жесткого диска </strong> {{ hdd.hddCapacity }} Гб</p>
+        <p><strong>Объем Кэш-памяти </strong>{{ hdd.amountOfCacheMemory }} МБ</p>
+        <p><strong>Скорость вращения шпинделя </strong>{{ hdd.spindleRotationSpeed }} об/мин</p>
+        <p><strong>Максимальная скорость передачи данных </strong>{{ hdd.maximumDataTransferRate }} Мбайт/сек</p>
+        <p><strong>Интерфейс </strong>{{ hdd.interface }}</p>
+        <p><strong>Максимальная рабочая температура </strong>{{ hdd.maximumOperatingTemperature }}</p>
+        <p><strong>Страна производителя </strong>{{ hdd.countryOfOrigin }}</p>
+        <p><strong>Цена </strong>{{ hdd.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

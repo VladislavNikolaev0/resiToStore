@@ -7,9 +7,36 @@
 {% endblock head %}
 {% block constructor_content %}
 <ul>
+    <form action="{% url 'processor_list' %}" method="post" id="serachForm">
+        {% csrf_token %}
+        <div class="cell">
+            <div class="cell-head">
+                <select name="company" id="company">
+                    <option value="Производитель" selected disabled>Производитель</option>
+                    <option value="amd">AMD</option>
+                    <option value="intel">Intel</option>
+                </select>
+
+                <select name="socket" id="socket">
+                    <option value="Сокет" selected disabled>Сокет</option>
+                    {% for socket in sockets %}
+                    <option value="{{ socket }}">{{ socket }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="core" id="core">
+                    <option value="Количество ядер" selected disabled>Количество ядер</option>
+                    {% for core in cores %}
+                    <option value="{{ core }}">{{ core }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">search</button>
+            </div>
+        </div>
+    </form>
     {% for processor in processors %}
     {% include 'main/processorCell.html' %}
-
     {% endfor %}
 </ul>
 {% endblock constructor_content %}

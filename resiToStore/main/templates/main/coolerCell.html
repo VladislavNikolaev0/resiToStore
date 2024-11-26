@@ -1,0 +1,37 @@
+<div class="cell">
+    <div class="cell-head" onclick="toggleDetails(this)">
+        <p>{{ cooler.model }} - {{ cooler.type }}</p>
+        <span class="arrow">&#9660;</span>
+    </div>
+    <div class="cell-details" style="display: none;">
+        <p><strong>Рассеиваемая мощность </strong> {{ cooler.powerDissipation }} Вт</p>
+        <p><strong>Тип Конструкции </strong>{{ cooler.typeOfConstruction }}</p>
+        <p><strong>Основной металл </strong>{{ cooler.baseMaterial }}</p>
+        <p><strong>Металл радиатора </strong>{{ cooler.radiatorMaterial }}</p>
+        <p><strong>Минимальная скорость вращения </strong>{{ cooler.minimumRotationSpeed }} об/мин</p>
+        <p><strong>Максимальное статическое давление </strong>{{ cooler.maximumStaticPressure }} Па</p>
+        <p><strong>Разъем для Подключения Вентиляторов </strong>{{ cooler.connectorForConnectingFans }}</p>
+        <p><strong>Максимальная скорость вращения </strong>{{ cooler.maximumRotationSpeed }} об/мин</p>
+        <p><strong>Номинальный ток </strong>{{ cooler.networkVoltage }} А</p>
+        <p><strong>Номинальное напряжение </strong>{{ cooler.ratedVoltage }} В</p>
+        <p><strong>Страна производителя </strong>{{ cooler.country }}</p>
+        <p><strong>Цена </strong>{{ cooler.amount }} $</p>
+    </div>
+</div>
+
+{% block script %}
+<script>
+function toggleDetails(element) {
+    const details = element.nextElementSibling;
+    const arrow = element.querySelector('.arrow');
+
+    if (details.style.display === "none") {
+        details.style.display = "block";
+        arrow.innerHTML = "&#9650;"; // Стрелка вверх
+    } else {
+        details.style.display = "none";
+        arrow.innerHTML = "&#9660;"; // Стрелка вниз
+    }
+}
+</script>
+{% endblock script %}

@@ -1,0 +1,15 @@
+{% extends 'main/assembling.html' %}
+
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'main/cell.css' %}">
+{% endblock head %}
+{% block constructor_content %}
+<ul>
+    {% for videoCard in videoCards %}
+    {% include 'main/videoCardCell.html' %}
+
+    {% endfor %}
+</ul>
+{% endblock constructor_content %}

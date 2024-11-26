@@ -7,6 +7,37 @@
 {% endblock head %}
 {% block constructor_content %}
 <ul>
+
+    <form action="{% url 'motherbroad_list' %}" method="post" id="serachForm">
+        {% csrf_token %}
+        <div class="cell">
+            <div class="cell-head">
+                <select name="company" id="company">
+                    <option value="Производитель" selected disabled>Производитель</option>
+                    {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="socket" id="socket">
+                    <option value="Сокет" selected disabled>Сокет</option>
+                    {% for socket in sockets %}
+                        <option value="{{ socket }}">{{ socket }}</option>
+                    {% endfor %}
+                </select>
+
+                <select name="formFactor" id="formFactor">
+                    <option value="Форм фактор" selected disabled>Форм фактор</option>
+                    {% for item in formFactors %}
+                        <option value="{{ item }}">{{ item }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit">search</button>
+            </div>
+        </div>
+    </form>
+
     {% for motherbroad in motherbroads %}
     {% include 'main/motherbroadCell.html' %}
 
